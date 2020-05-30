@@ -1,0 +1,1 @@
+INSERT INTO usuario (email) VALUES ('hernan.andres.s@mail.cl')
