@@ -100,7 +100,6 @@ public class EncuestaService {
 		HashMap<String, List<ResultadoRespuestaResponse>> mapRes = new HashMap<String, List<ResultadoRespuestaResponse>>();
 		
 		if(resultadoEncuesta.isEmpty()) {
-			//throw new CustomNotFoundException("No existen encuestados");
 			return mapRes;
 		}
 		

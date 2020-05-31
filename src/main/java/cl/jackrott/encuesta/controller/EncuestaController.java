@@ -26,18 +26,17 @@ import cl.jackrott.encuesta.services.EncuestaService;
 public class EncuestaController {
 	
 	@Autowired
-	private EncuestaService encuestaFormatoService;
+	private EncuestaService encuestaService;
 	
 	@GetMapping("/{id}/formato")
-	public ResponseEntity<FormatoEncuestaResponse> findAllPaths(@PathVariable(name = "id", required = true) Integer idEncuesta) {
-		
-		FormatoEncuestaResponse formatoEncuesta = encuestaFormatoService.getPreguntasEncuesta(idEncuesta);
+	public ResponseEntity<FormatoEncuestaResponse> findFormatoEncuesta(@PathVariable(name = "id", required = true) Integer idEncuesta) {
+		FormatoEncuestaResponse formatoEncuesta = encuestaService.getPreguntasEncuesta(idEncuesta);
 		return new ResponseEntity<FormatoEncuestaResponse>(formatoEncuesta, HttpStatus.OK);
 	}
 	
 	@PostMapping("/")
 	public void registrarEncuesta(@RequestBody EncuestaRequest encuesta) {
-		encuestaFormatoService.registrarEncuesta(encuesta);
+		encuestaService.registrarEncuesta(encuesta);
 	}
 	
 	
@@ -45,7 +44,7 @@ public class EncuestaController {
 	public ResponseEntity<HashMap<String, List<ResultadoRespuestaResponse>>> findResultadoEncuesta(
 			@PathVariable(name = "id", required = true) Integer idEncuesta) {
 		
-		HashMap<String, List<ResultadoRespuestaResponse>> formatoEncuesta = encuestaFormatoService.resultadoEncuesta(idEncuesta);
+		HashMap<String, List<ResultadoRespuestaResponse>> formatoEncuesta = encuestaService.resultadoEncuesta(idEncuesta);
 		return new ResponseEntity<HashMap<String, List<ResultadoRespuestaResponse>>>(formatoEncuesta, HttpStatus.OK);
 	}
 	
