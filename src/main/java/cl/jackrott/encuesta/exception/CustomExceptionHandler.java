@@ -30,13 +30,13 @@ public class CustomExceptionHandler {
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
 	}
 	
-	 @ExceptionHandler(value = MethodArgumentNotValidException.class)
-	    public ResponseEntity<ExceptionResponse> invalidInput(MethodArgumentNotValidException ex) {
-	        BindingResult result = ex.getBindingResult();
-	        ExceptionResponse exceptionResponse = new ExceptionResponse();
-	        exceptionResponse.setCode(ErrorUtil.DTO_REQUEST_VALIDATION);
-	        exceptionResponse.setMessage("Atributos no validos");
-	        exceptionResponse.setValidationErrors(result);
-	        return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.BAD_REQUEST);
-	    }
+	@ExceptionHandler(value = MethodArgumentNotValidException.class)
+    public ResponseEntity<ExceptionResponse> invalidInput(MethodArgumentNotValidException ex) {
+        BindingResult result = ex.getBindingResult();
+        ExceptionResponse exceptionResponse = new ExceptionResponse();
+        exceptionResponse.setCode(ErrorUtil.DTO_REQUEST_VALIDATION);
+        exceptionResponse.setMessage("Atributos no validos");
+        exceptionResponse.setValidationErrors(result);
+        return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
 }

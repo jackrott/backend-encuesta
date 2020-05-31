@@ -22,6 +22,4 @@ public class FormatoEncuestaResponse {
 	public void setPreguntas(List<PreguntaFormulario> preguntas) {
 		this.preguntas = preguntas;
 	}
-	
-	
 }
